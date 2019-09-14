@@ -3,14 +3,12 @@ import { Text, Box, Button } from "rebass"
 import { primaryGradient, secondaryGradient } from "../shared"
 import { ItemList } from "./item-list"
 
-const getPersonName = (window: Window) =>
-  window.location.pathname.substring(1).toLowerCase() === "jay"
-    ? "jay"
-    : "emily"
-
+const getPersonName = (window: Window) => {
+  let params = new URLSearchParams(window.location.search)
+  return params.get("name") === "jay" ? "jay" : "emily"
+}
 export const Main: React.FC<{}> = () => {
   const name = getPersonName(window)
-  console.log("hii", name)
 
   return (
     <div>
