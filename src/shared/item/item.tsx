@@ -14,6 +14,7 @@ interface IProps {
   title: string
   name: string
   date: number
+  amount: number
 }
 
 const categoryToIcon = {
@@ -28,7 +29,8 @@ export const Item: React.SFC<IProps> = ({
   category = "other",
   title,
   name,
-  date
+  date,
+  amount
 }) => (
   <Box width="100vw" pb="0.5rem">
     <Box
@@ -50,7 +52,7 @@ export const Item: React.SFC<IProps> = ({
           {title}
         </Text>
         <Text fontWeight="lighter" color="white" fontSize="subtitle">
-          {name}
+          {name} - ${amount.toFixed(2)}
         </Text>
       </Flex>
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
